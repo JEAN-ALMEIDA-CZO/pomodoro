@@ -11,7 +11,7 @@ Uma aplicação web simples e eficaz que implementa a técnica Pomodoro para aum
 ## 🌐 Demonstração
 
 Acesse a demonstração do projeto para experimentar o Promodoro Plus em ação:  
-👉 [**Ver Demonstração**](https://JEAN-ALMEIDA-CZO/pomodoro)
+👉 [**Ver Demonstração**](https://jean-almeida-czo.github.io/pomodoro/)
 
 
 ---
