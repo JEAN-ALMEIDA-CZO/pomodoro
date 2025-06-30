@@ -1,0 +1,350 @@
+:root {
+    --bg-color: #1a1a2e;
+    --text-color: #e0e0e0;
+    --primary-button-bg: #4CAF50;
+    --primary-button-hover: #45a049;
+    --secondary-button-bg: #2196F3;
+    --secondary-button-hover: #1976D2;
+    --active-mode-bg: #FF9800;
+    --active-mode-hover: #fb8c00;
+    --danger-button-bg: #f44336;
+    --danger-button-hover: #d32f2f;
+    --card-bg: #33334d;
+    --note-item-bg: #444466;
+    --input-bg: #28283d;
+    --input-border: #555;
+    --shadow-color: rgba(0, 0, 0, 0.3);
+    --theme-toggle-bg: #6c757d;
+    --theme-toggle-color: white;
+    --alert-red: #ff0000;
+    --light-bg: #ffffff;
+    --dark-bg: #000000;
+}
+
+body.light-theme {
+    --bg-color: #f0f2f5;
+    --text-color: #333333;
+    --primary-button-bg: #28a745;
+    --primary-button-hover: #218838;
+    --secondary-button-bg: #007bff;
+    --secondary-button-hover: #0056b3;
+    --active-mode-bg: #fd7e14;
+    --active-mode-hover: #e66a00;
+    --danger-button-bg: #dc3545;
+    --danger-button-hover: #c82333;
+    --card-bg: #ffffff;
+    --note-item-bg: #e9ecef;
+    --input-bg: #ffffff;
+    --input-border: #ced4da;
+    --shadow-color: rgba(0, 0, 0, 0.1);
+    --theme-toggle-bg: #6c757d;
+    --theme-toggle-color: white;
+    --dark-bg: #000000;
+}
+
+
+
+@keyframes piscar-tempo-dark {
+    0%, 100% {
+        color: red;
+        background-color: #ffffff; /* fundo branco */
+    }
+    50% {
+        color: #ffffff; /* número branco */
+        background-color: red;
+    }
+}
+
+@keyframes piscar-tempo-light {
+    0%, 100% {
+        color: red;
+        background-color: #000000; /* fundo preto */
+    }
+    50% {
+        color: #000000;
+        background-color: red;
+    }
+}
+
+/* Classe de alerta com transição suave aplicada apenas no número */
+#visor.alerta {
+    animation: piscar-tempo-dark 1s infinite;
+    transition: color 0.5s ease, background-color 0.5s ease;
+    border-radius: 8px;
+}
+
+/* Alternativa para tema claro */
+body.light-theme #visor.alerta {
+    animation: piscar-tempo-light 1s infinite;
+}
+
+
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background: var(--bg-color);
+    color: var(--text-color);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    min-height: 100vh;
+    margin: 0;
+    padding: 40px 20px;
+    box-sizing: border-box;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+h1 {
+    margin-bottom: 30px;
+    color: var(--primary-button-bg);
+    font-weight: 700;
+    font-size: 2.5em;
+    text-align: center;
+    transition: color 0.3s ease;
+}
+
+.timer {
+    font-size: 6em;
+    margin-bottom: 30px;
+    font-weight: 700;
+    text-shadow: 2px 2px 5px var(--shadow-color);
+    min-width: 250px;
+    text-align: center;
+    transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+.controls, .mode-selector {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 20px;
+    gap: 10px;
+}
+
+.controls button,
+.mode-selector button,
+.theme-toggle-button {
+    background: var(--primary-button-bg);
+    border: none;
+    padding: 12px 25px;
+    font-size: 1.1em;
+    color: white;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.1s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 8px var(--shadow-color);
+    flex-grow: 1;
+    min-width: 120px;
+}
+
+.controls button:hover,
+.mode-selector button:hover,
+.theme-toggle-button:hover {
+    background: var(--primary-button-hover);
+    transform: translateY(-2px);
+}
+
+.mode-selector button.active {
+    background: var(--active-mode-bg);
+    box-shadow: 0 4px 10px rgba(255, 152, 0, 0.4);
+}
+
+.mode-selector button.active:hover {
+    background: var(--active-mode-hover);
+}
+
+.description-section,
+.notes-section {
+    width: 100%;
+    max-width: 500px;
+    margin-top: 40px;
+    background: var(--card-bg);
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px var(--shadow-color);
+    transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+
+.description-section h2,
+.notes-section h2 {
+    margin-top: 0;
+    color: var(--secondary-button-bg);
+    text-align: center;
+    margin-bottom: 20px;
+    transition: color 0.3s ease;
+}
+
+.description-section p,
+.description-section ul {
+    color: var(--text-color);
+    transition: color 0.3s ease;
+    line-height: 1.6;
+    margin: 10px 0;
+}
+
+.description-section ul {
+    padding-left: 20px;
+}
+
+.description-section ul li {
+    margin-bottom: 10px;
+}
+
+.add-note-container {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.notes-section input {
+    flex-grow: 1;
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid var(--input-border);
+    background: var(--input-bg);
+    color: var(--text-color);
+    font-size: 1em;
+    outline: none;
+    transition: background 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+}
+
+.notes-section input::placeholder {
+    color: var(--text-color);
+    opacity: 0.7;
+}
+
+.notes-section button.add-btn {
+    padding: 12px 20px;
+    border: none;
+    background: var(--secondary-button-bg);
+    color: white;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    box-shadow: 0 2px 5px var(--shadow-color);
+}
+
+.notes-section button.add-btn:hover {
+    background: var(--secondary-button-hover);
+}
+
+.note-list {
+    list-style: none;
+    padding: 0;
+    margin-top: 0;
+}
+
+.note-item {
+    background: var(--note-item-bg);
+    padding: 12px 15px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: grab;
+    transition: background 0.2s ease, transform 0.1s ease, box-shadow 0.2s ease;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.note-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px var(--shadow-color);
+}
+
+.note-item.dragging {
+    opacity: 0.7;
+    transform: scale(1.02);
+    background: var(--active-mode-bg);
+    box-shadow: 0 8px 20px var(--shadow-color);
+}
+
+.note-item span {
+    flex-grow: 1;
+    margin-right: 10px;
+    word-break: break-word;
+    color: var(--text-color);
+    transition: color 0.3s ease;
+}
+
+.note-item button {
+    background: var(--danger-button-bg);
+    border: none;
+    padding: 8px 12px;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.note-item button:hover {
+    background: var(--danger-button-hover);
+}
+
+.theme-toggle-container {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.theme-toggle-button {
+    background: var(--theme-toggle-bg);
+    color: var(--theme-toggle-color);
+    font-size: 0.9em;
+    padding: 8px 15px;
+    min-width: unset;
+}
+
+.theme-toggle-button:hover {
+    background: #5a6268;
+}
+
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2em;
+    }
+    .timer {
+        font-size: 4.5em;
+    }
+    .controls button,
+    .mode-selector button {
+        padding: 10px 20px;
+        font-size: 1em;
+        min-width: unset;
+    }
+    .add-note-container {
+        flex-direction: column;
+        gap: 15px;
+    }
+    .notes-section button.add-btn {
+        width: 100%;
+    }
+    .notes-section, .description-section {
+        padding: 15px;
+    }
+    .note-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+    }
+    .note-item button {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.8em;
+    }
+    .timer {
+        font-size: 3.5em;
+    }
+    .controls, .mode-selector {
+        flex-direction: column;
+        gap: 5px;
+    }
+    .controls button, .mode-selector button {
+        width: 100%;
+    }
+}

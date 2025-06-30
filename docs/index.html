@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promodoro Plus - Timer de Foco</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Promodoro Plus</h1>
+    <div class="timer" id="visor">25:00</div>
+    <div class="controls">
+        <button onclick="iniciarTemporizador()">Iniciar</button>
+        <button onclick="pausarTemporizador()">Pausar</button>
+        <button onclick="resetarTemporizador()">Resetar</button>
+    </div>
+    <div class="mode-selector">
+        <button onclick="definirModo('pomodoro')" id="btn-pomodoro" class="active">Pomodoro</button>
+        <button onclick="definirModo('short')" id="btn-short">Pausa Curta</button>
+        <button onclick="definirModo('long')" id="btn-long">Pausa Longa</button>
+    </div>
+
+    <div class="description-section">
+        <h2>O que é o Método Pomodoro?</h2>
+        <p>O Método Pomodoro é uma técnica de gerenciamento de tempo desenvolvida por Francesco Cirillo nos anos 1980. Ele utiliza um temporizador para dividir o trabalho em intervalos focados, geralmente de 25 minutos, separados por pausas curtas.</p>
+        <h3>Como usar o Pomodoro?</h3>
+        <ul>
+            <li>Escolha uma tarefa.</li>
+            <li>Configure o temporizador para 25 minutos e trabalhe.</li>
+            <li>Quando o tempo acabar, faça uma pausa curta.</li>
+            <li>Após 4 ciclos, faça uma pausa longa.</li>
+        </ul>
+    </div>
+
+    <div class="notes-section">
+        <h2>Minhas Anotações</h2>
+        <div class="add-note-container">
+            <input type="text" id="inputNota" placeholder="Adicione uma nova nota...">
+            <button class="add-btn" onclick="adicionarNota()">Adicionar</button>
+        </div>
+        <ul class="note-list" id="listaNotas"></ul>
+    </div>
+
+    <div class="theme-toggle-container">
+        <button class="theme-toggle-button" onclick="toggleTheme()">Alternar Tema</button>
+    </div>
+
+    <audio id="alarmeAudio">
+        <source src="alarme.mp3" type="audio/mpeg">
+    </audio>
+
+    <script src="script.js"></script>
+</body>
+</html>
