@@ -13,7 +13,6 @@ Uma aplicação web simples e eficaz que implementa a técnica Pomodoro para aum
 Acesse a demonstração do projeto para experimentar o Promodoro Plus em ação:  
 👉 [**Ver Demonstração**](https://jean-almeida-czo.github.io/pomodoro/)
 
-
 ---
 
 ## ✨ Funcionalidades
@@ -25,7 +24,8 @@ Acesse a demonstração do projeto para experimentar o Promodoro Plus em ação:
   - Persistência de tarefas via `localStorage`.
 - 🎨 **Temas**: Alternância entre temas claro e escuro com transições suaves.
 - 📱 **Responsividade**: Interface adaptável para desktops e dispositivos móveis.
-- ℹ️ **Descrição do Método**: Explicação do método Pomodoro com exemplo prático.
+- ⏰ **Alertas Sonoros**: Toque de alarme que dispara 9 vezes nos últimos 10 segundos da contagem.
+- 🔴 **Piscar do Temporizador**: Contador pisca em vermelho alternando com a cor do tema durante os últimos 10 segundos.
 
 ---
 
@@ -33,12 +33,11 @@ Acesse a demonstração do projeto para experimentar o Promodoro Plus em ação:
 
 - **HTML5**: Estrutura da aplicação.
 - **CSS3**: Estilização com variáveis CSS e design responsivo.
-- **JavaScript (Vanilla)**: Lógica do temporizador e gerenciamento de tarefas.
+- **JavaScript (Vanilla)**: Lógica do temporizador, controle de alertas e gerenciamento de tarefas.
 - **Google Fonts**: Fonte Roboto para tipografia moderna.
 - **LocalStorage**: Persistência de dados no navegador.
 
 ---
-
 
 ### Principais Funções:
 
@@ -50,6 +49,7 @@ Acesse a demonstração do projeto para experimentar o Promodoro Plus em ação:
 - `excluirNota(indice)`: Remove uma nota específica.
 - `renderizarNotas()`: Atualiza a lista de notas com suporte a arrastar e soltar.
 - `toggleTheme()`: Alterna entre temas claro e escuro.
+- Alertas sonoros e piscar do contador nos últimos 10 segundos.
 
 ---
 
