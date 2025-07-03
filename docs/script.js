@@ -1,6 +1,6 @@
 const duracoes = {
     pomodoro: 25 * 60,
-    short: 1 * 60,
+    short: 5 * 60,
     long: 15 * 60
 };
 
